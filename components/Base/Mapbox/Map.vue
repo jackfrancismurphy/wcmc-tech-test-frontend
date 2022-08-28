@@ -39,6 +39,11 @@ export default {
     })
 
     this.map.on('load', () => {
+      this.map.addSource('my-data',{
+      type: 'vector',
+      url: 'https://hub.arcgis.com/datasets/NIWA::survey-of-algae-sponges-and-ascidians-fiji-2007/explore?location=-16.385053%2C-0.695716%2C9.39' 
+    })
+
       this.loaded = true
     })
   }
