@@ -39,10 +39,16 @@ export default {
     })
 
     this.map.on('load', () => {
-      this.map.addSource('my-data',{
-      type: 'vector',
-      url: 'https://hub.arcgis.com/datasets/NIWA::survey-of-algae-sponges-and-ascidians-fiji-2007/explore?location=-16.385053%2C-0.695716%2C9.39' 
-    })
+      this.map.addSource('my-data', {
+        type: 'geojson',
+        data: 'https://opendata.arcgis.com/api/v3/datasets/723ce658eb7b4f448e4d143b220c3273_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1'
+      })
+
+      this.map.addLayer({
+        id: 'species_markers',
+        type: 'circle',
+        source: 'my-data'
+      })
 
       this.loaded = true
     })
@@ -58,4 +64,5 @@ export default {
     @apply h-full;
   }
 }
+
 </style>
